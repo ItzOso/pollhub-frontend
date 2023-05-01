@@ -2,8 +2,10 @@ import { Alert, Box, Button, Container, Grid, TextField, Typography } from "@mui
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {useNavigate} from "react-router-dom"
 
 function Signup() {
+    const navigate = useNavigate()
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -24,7 +26,7 @@ function Signup() {
                 email: values.email,
                 password: values.password,
             });
-
+            navigate("/login")
             console.log(result);
             setError("");
         } catch (error) {
